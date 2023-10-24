@@ -1,0 +1,23 @@
+{% if kitchens is defined and kitchens is not empty %}
+<table border="2">
+    <tr>
+        <td>ID</td>
+        <td>name</td>
+        <td>staff number</td>
+
+    </tr>
+    {%set tt_nbr_staff = 0 %}
+    {%for kitchen in kitchens%}
+    <tr>
+        <td>{{kitchen.id}}</td>
+        <td>{{kitchen.name|upper}}</td>
+        <td>{{kitchen.nbr_staff}}</td>
+        <td><a href="{{path('kitchenDetails',{'id': kitchen.id})}}">Details</a></td>
+    </tr>
+    {% set tt_nbr_staff = tt_nbr_staff + kitchen.nbr_staff %}
+    {%endfor%}
+</table>
+nombre de staff total :{{tt_nbr_staff}} <br>
+{%else%}
+is empty
+{%endif%}

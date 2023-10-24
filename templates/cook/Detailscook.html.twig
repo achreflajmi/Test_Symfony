@@ -1,0 +1,6 @@
+Name : {{cook.name}} <br>
+Reference :{{cook.id}}<br>
+Publication Date :{{cook.Birthday|date()}}<br>
+Author :{{cook.kitchen.name}}<br>
+<a href="{{path('showDBCook')}}">back to list</a>
+<a href="{{path('editDBcook',{'id': cook.id})}}">edit</a>

@@ -1,0 +1,33 @@
+{%if cook is not empty %}
+{%set tt_published_cooks=0 %}
+<table border="2">
+    <tr>
+        <td>ID</td>
+        <td>Name</td>
+        <td>Birthday Date</td>
+        <td>Category</td>
+        <td>Published</td>
+        <td>Actions</td>
+        
+    </tr>
+    
+    {%for cookd in cook %}
+    <tr>
+        <td>{{cookd.id}}</td>
+        <td>{{cookd.Kitchen.name}}</td>
+        <td>{{cookd.name}}</td>
+        <td>{{cookd.Birthday|date()}}</td>
+
+        <td><a href="{{path('editDBcook',{'ref': cookd.id})}}">Edit</a>
+        <a href="{{path('RemoveDBcook',{'ref': cookd.id})}}">Delete</a>
+        <a href="{{path('Detailscook',{'ref': cookd.id})}}">Show</a></td>
+       
+        
+    </tr>
+    {%endfor%}
+   
+</table>
+
+<a href="{{path('addDBcook')}}">
+    <button>Create New</button>
+</a>

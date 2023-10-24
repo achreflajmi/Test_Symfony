@@ -1,0 +1,18 @@
+<table border="2">
+    <tr>
+        <td>ID</td>
+        <td>name</td>
+        <td>nombre de staff</td>
+
+    </tr>
+    {%for kitchend in kitchen %}
+    <tr>
+        <td>{{kitchend.id}}</td>
+        <td>{{kitchend.name|upper}}</td>
+        <td>{{kitchend.getStaffNb}}</td>
+        <td><a href="{{path('editDBkitchen',{'id': kitchend.id})}}">Update</a></td>  
+        <td><a href="{{path('REMOVEDBkitchen',{'id': kitchend.id})}}">Romove</a></td>  
+        
+    </tr>
+    {%endfor%}
+</table>
